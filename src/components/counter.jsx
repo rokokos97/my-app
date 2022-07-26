@@ -1,7 +1,6 @@
 import React from "react";
 
 const Counter=(props)=>{
-    console.log(props);
     // const [value,setValue]=useState(props.value)
     const {value}=props
 
@@ -10,19 +9,18 @@ const Counter=(props)=>{
     };
     const getBadgeClasses =()=>{
         let  classes ="bg m-2 btn-sm ";
-        classes += value===0 ? "bg-warning" : "bg-primary"
+        classes +=value===0 ? "bg-warning" : "bg-primary"
         return classes
     };
 
-    const handelIncrement =()=>{
-        // setValue(value+1)
-        console.log("handelIncrement");
-    };
-
-    const handelDecrement=()=>{
-        // setValue(value-1)
-        console.log("handelDecrement");
-    };
+    // const handelIncrement =()=>{
+    //     // setValue(value+1)
+    //     console.log("handelIncrement");
+    // };
+    // const handelDecrement=()=>{
+    //     // setValue(value-1)
+    //     console.log("handelDecrement");
+    // };
 
 return <div>
         <span>{props.name}</span>
@@ -31,19 +29,19 @@ return <div>
         </span>
         <button
             className="btn bg-primary btn-sm m-2"
-            onClick={handelIncrement}
+            onClick={()=>props.onIncrement(props.id)}
         >
             +
         </button>
         <button
             className="btn bg-primary btn-sm m-2"
-            onClick={handelDecrement}
+            onClick={()=>props.onDecrement(props.id)}
         >
             -
         </button>
         <button
             className="btn btn-danger"
-            onClick={()=>props.onDelete(props.name)}
+            onClick={()=>props.onDelete(props.id)}
         >
             Delete
         </button>
